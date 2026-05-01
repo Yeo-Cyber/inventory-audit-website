@@ -1,0 +1,35 @@
+<svg width="960" height="720" viewBox="0 0 960 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="720" fill="#F6C400"/>
+  <rect x="64" y="64" width="832" height="592" rx="28" fill="#FFFFFF" stroke="#151515" stroke-width="4"/>
+  <rect x="64" y="64" width="832" height="82" rx="28" fill="#151515"/>
+  <circle cx="116" cy="105" r="12" fill="#F6C400"/>
+  <circle cx="154" cy="105" r="12" fill="#FFFFFF"/>
+  <circle cx="192" cy="105" r="12" fill="#0A6FBD"/>
+  <text x="238" y="113" font-family="Tahoma, Arial, sans-serif" font-size="26" font-weight="700" fill="#FFFFFF">StockTake Pro Dashboard</text>
+
+  <rect x="104" y="184" width="210" height="120" rx="14" fill="#FFF7CC" stroke="#E7D179"/>
+  <text x="130" y="226" font-family="Tahoma, Arial, sans-serif" font-size="18" font-weight="700" fill="#151515">ยอดตั้งต้น</text>
+  <text x="130" y="272" font-family="Tahoma, Arial, sans-serif" font-size="42" font-weight="900" fill="#151515">12,480</text>
+
+  <rect x="350" y="184" width="210" height="120" rx="14" fill="#EAF4FF" stroke="#BAD8F5"/>
+  <text x="376" y="226" font-family="Tahoma, Arial, sans-serif" font-size="18" font-weight="700" fill="#151515">นับได้แล้ว</text>
+  <text x="376" y="272" font-family="Tahoma, Arial, sans-serif" font-size="42" font-weight="900" fill="#0A6FBD">82%</text>
+
+  <rect x="596" y="184" width="220" height="120" rx="14" fill="#FFECEC" stroke="#F3B7B7"/>
+  <text x="622" y="226" font-family="Tahoma, Arial, sans-serif" font-size="18" font-weight="700" fill="#151515">ผลต่าง</text>
+  <text x="622" y="272" font-family="Tahoma, Arial, sans-serif" font-size="42" font-weight="900" fill="#D92D20">-128</text>
+
+  <rect x="104" y="348" width="456" height="222" rx="16" fill="#FFFFFF" stroke="#D9D9D9"/>
+  <rect x="130" y="384" width="120" height="14" rx="7" fill="#151515"/>
+  <rect x="130" y="428" width="370" height="16" rx="8" fill="#E6E6E6"/>
+  <rect x="130" y="468" width="310" height="16" rx="8" fill="#F6C400"/>
+  <rect x="130" y="508" width="350" height="16" rx="8" fill="#0A6FBD"/>
+
+  <rect x="612" y="348" width="204" height="222" rx="28" fill="#151515"/>
+  <rect x="642" y="388" width="144" height="82" rx="10" fill="#FFFFFF"/>
+  <path d="M660 408H768M660 426H768M660 444H768" stroke="#151515" stroke-width="8"/>
+  <rect x="654" y="504" width="120" height="28" rx="14" fill="#F6C400"/>
+  <path d="M706 352H722" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
+  <rect x="792" y="424" width="54" height="24" rx="12" fill="#F6C400"/>
+  <path d="M846 436L894 388" stroke="#151515" stroke-width="10" stroke-linecap="round"/>
+</svg>
