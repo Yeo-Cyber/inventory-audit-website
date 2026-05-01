@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { SectionHeader } from "@/components/SectionHeader";
+import { getContactInfo } from "@/lib/cms";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "ติดต่อเรา",
@@ -7,7 +10,9 @@ export const metadata: Metadata = {
     "ติดต่อ StockTake Pro เพื่อประเมินบริการตรวจนับสต๊อก ซอฟต์แวร์จาก Excel และอุปกรณ์สแกนบาร์โค้ด",
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const contact = await getContactInfo();
+
   return (
     <main>
       <section className="bg-white">
@@ -21,15 +26,15 @@ export default function ContactPage() {
             <div className="mt-10 grid gap-4 text-sm text-neutral-600">
               <p>
                 <span className="font-bold text-neutral-950">Email:</span>{" "}
-                sales@stocktakepro.example
+                {contact.email}
               </p>
               <p>
                 <span className="font-bold text-neutral-950">Phone:</span>{" "}
-                02-014-0128
+                {contact.phone}
               </p>
               <p>
                 <span className="font-bold text-neutral-950">Service Area:</span>{" "}
-                กรุงเทพฯ ปริมณฑล และงานโครงการทั่วประเทศ
+                {contact.service_area}
               </p>
             </div>
           </div>

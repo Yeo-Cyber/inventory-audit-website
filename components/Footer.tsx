@@ -1,7 +1,16 @@
 import Link from "next/link";
-import { navItems, siteConfig } from "@/lib/site";
+import { siteConfig } from "@/lib/cms";
 
-export function Footer() {
+type FooterProps = {
+  navItems: Array<{ label: string; href: string }>;
+  contact: {
+    email?: string;
+    phone?: string;
+    address?: string;
+  };
+};
+
+export function Footer({ navItems, contact }: FooterProps) {
   return (
     <footer className="border-t border-neutral-200 bg-white">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-12 md:grid-cols-[1.3fr_0.7fr_0.7fr] lg:px-8">
@@ -31,13 +40,13 @@ export function Footer() {
         <div>
           <p className="text-sm font-semibold text-neutral-950">ติดต่อ</p>
           <div className="mt-4 grid gap-3 text-sm text-neutral-600">
-            <a href="mailto:sales@stocktakepro.example" className="hover:text-neutral-950">
-              sales@stocktakepro.example
+            <a href={`mailto:${contact.email}`} className="hover:text-neutral-950">
+              {contact.email}
             </a>
-            <a href="tel:+6620140128" className="hover:text-neutral-950">
-              02-014-0128
+            <a href={`tel:${contact.phone}`} className="hover:text-neutral-950">
+              {contact.phone}
             </a>
-            <p>กรุงเทพฯ และให้บริการทั่วประเทศ</p>
+            <p>{contact.address}</p>
           </div>
         </div>
       </div>

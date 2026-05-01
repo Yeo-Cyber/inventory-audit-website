@@ -2,7 +2,17 @@ import Link from "next/link";
 import { Card } from "@/components/Card";
 import { Hero } from "@/components/Hero";
 import { SectionHeader } from "@/components/SectionHeader";
-import { metrics, productKits, projects, services } from "@/lib/site";
+import {
+  defaultMetrics,
+  getHardwareProducts,
+  getHomepage,
+  getPricingPackages,
+  getServices,
+  getSoftwareProducts,
+} from "@/lib/cms";
+import { projects } from "@/lib/site";
+
+export const dynamic = "force-dynamic";
 
 const workflow = [
   "นำเข้าไฟล์ Excel ตั้งต้น",
@@ -19,20 +29,30 @@ const reports = [
   ["885-204", "แก้ว 16 oz.", "หน้าร้าน", "220", "236", "+16"],
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [homepage, services, software, hardware, pricing] = await Promise.all([
+    getHomepage(),
+    getServices(),
+    getSoftwareProducts(),
+    getHardwareProducts(),
+    getPricingPackages(),
+  ]);
+  const productKits = [...pricing, ...software, ...hardware].slice(0, 3);
+
   return (
     <main>
       <Hero
-        eyebrow="Inventory Audit Service + Software + Hardware"
-        title="ตรวจนับสต๊อกให้รู้ยอดจริง โดยเริ่มจาก Excel ที่คุณมีอยู่แล้ว"
-        description="บริการตรวจนับสินค้า ซอฟต์แวร์สแกนบาร์โค้ดแบบไม่ต้องมี database และชุดอุปกรณ์ที่เปลี่ยนมือถือให้เป็นเครื่องตรวจนับสต๊อก สำหรับ SME โรงงาน คลังสินค้า และงานระดับ Hypermarket"
-        primaryCta={{ label: "ขอคำปรึกษาฟรี", href: "/contact" }}
-        secondaryCta={{ label: "ดูแพ็กเกจบริการ", href: "/services" }}
+        eyebrow={homepage.eyebrow}
+        title={homepage.hero_title}
+        description={homepage.hero_subtitle}
+        primaryCta={{ label: homepage.primary_cta_text, href: homepage.primary_cta_href }}
+        secondaryCta={{ label: homepage.secondary_cta_text, href: homepage.secondary_cta_href }}
+        imageSrc={homepage.banner_image}
       />
 
       <section className="border-y border-neutral-200 bg-white">
         <div className="mx-auto grid max-w-7xl gap-6 px-6 py-8 sm:grid-cols-3 lg:px-8">
-          {metrics.map((metric) => (
+          {defaultMetrics.map((metric) => (
             <div key={metric.value} className="border-l-4 border-yellow-400 pl-4">
               <p className="text-3xl font-black tracking-tight text-neutral-950">
                 {metric.value}
@@ -52,7 +72,7 @@ export default function HomePage() {
         <div className="mt-10 grid gap-5 md:grid-cols-4">
           {services.map((service) => (
             <Card
-              key={service.title}
+              key={service.id ?? service.title}
               title={service.title}
               description={service.description}
               label={service.label}
@@ -131,12 +151,12 @@ export default function HomePage() {
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {productKits.map((kit) => (
             <article
-              key={kit.name}
+              key={kit.id ?? kit.title}
               className="rounded-lg border border-neutral-200 bg-white p-6 shadow-sm"
             >
-              <p className="text-sm font-bold text-blue-700">{kit.price}</p>
-              <h3 className="mt-3 text-2xl font-black text-neutral-950">{kit.name}</h3>
-              <p className="mt-3 text-sm leading-6 text-neutral-600">{kit.detail}</p>
+              <p className="text-sm font-bold text-blue-700">{kit.price ?? kit.label}</p>
+              <h3 className="mt-3 text-2xl font-black text-neutral-950">{kit.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-neutral-600">{kit.description}</p>
               <Link
                 href="/contact"
                 className="mt-6 inline-flex rounded-md bg-neutral-950 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-800"

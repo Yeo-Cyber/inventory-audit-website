@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
-import { services } from "@/lib/site";
+import { getServices } from "@/lib/cms";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "บริการ",
@@ -28,7 +30,9 @@ const packages = [
   },
 ];
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const services = await getServices();
+
   return (
     <main>
       <section className="bg-white">

@@ -1,7 +1,17 @@
 import Link from "next/link";
-import { navItems, siteConfig } from "@/lib/site";
+import { siteConfig } from "@/lib/cms";
 
-export function Navbar() {
+type NavItem = {
+  label: string;
+  href: string;
+};
+
+type NavbarProps = {
+  navItems: NavItem[];
+  logoUrl?: string;
+};
+
+export function Navbar({ navItems, logoUrl }: NavbarProps) {
   return (
     <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white/95 backdrop-blur">
       <div className="bg-neutral-950 px-6 py-2 text-center text-xs font-medium text-white">
@@ -9,9 +19,17 @@ export function Navbar() {
       </div>
       <nav className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-4 md:flex-row md:items-center md:justify-between lg:px-8">
         <Link href="/" className="flex items-center gap-3">
-          <span className="grid size-10 place-items-center rounded-md bg-yellow-400 text-sm font-black text-neutral-950">
-            ST
-          </span>
+          {logoUrl ? (
+            <img
+              src={logoUrl}
+              alt={`${siteConfig.name} logo`}
+              className="size-10 rounded-md object-cover"
+            />
+          ) : (
+            <span className="grid size-10 place-items-center rounded-md bg-yellow-400 text-sm font-black text-neutral-950">
+              ST
+            </span>
+          )}
           <span className="text-base font-bold tracking-tight text-neutral-950">
             {siteConfig.name}
           </span>

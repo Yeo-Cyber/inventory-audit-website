@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 type HeroProps = {
@@ -13,6 +12,7 @@ type HeroProps = {
     label: string;
     href: string;
   };
+  imageSrc?: string;
 };
 
 export function Hero({
@@ -21,6 +21,7 @@ export function Hero({
   description,
   primaryCta,
   secondaryCta,
+  imageSrc = "/stocktake-dashboard.svg",
 }: HeroProps) {
   return (
     <section className="bg-[linear-gradient(120deg,#fff8d6_0%,#ffffff_45%,#eef6ff_100%)]">
@@ -53,12 +54,10 @@ export function Hero({
           </div>
         </div>
         <div className="relative min-h-[360px] overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-xl shadow-neutral-200/70">
-          <Image
-            src="/stocktake-dashboard.svg"
+          <img
+            src={imageSrc}
             alt="Stock counting software and scanner dashboard preview"
-            fill
-            priority
-            className="object-cover"
+            className="h-full w-full object-cover"
           />
         </div>
       </div>

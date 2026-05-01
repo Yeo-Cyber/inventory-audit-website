@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
-import { siteConfig } from "@/lib/site";
+import { getContactInfo, getHomepage, getNavigation, siteConfig } from "@/lib/cms";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -45,17 +48,26 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [navItems, contact, homepage] = await Promise.all([
+    getNavigation(),
+    getContactInfo(),
+    getHomepage(),
+  ]);
+  const headerStore = await headers();
+  const pathname = headerStore.get("x-pathname") || "";
+  const isAdmin = pathname.startsWith("/admin");
+
   return (
     <html lang="th">
       <body>
-        <Navbar />
+        {isAdmin ? null : <Navbar navItems={navItems} logoUrl={homepage.logo_url} />}
         {children}
-        <Footer />
+        {isAdmin ? null : <Footer navItems={navItems} contact={contact} />}
       </body>
     </html>
   );

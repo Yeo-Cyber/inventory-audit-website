@@ -16,6 +16,8 @@ Production-ready company website for an inventory audit service, Excel-based sto
 
 ```text
 app/
+  admin/
+  api/admin/
   (dashboard)/dashboard/page.tsx
   about/page.tsx
   contact/page.tsx
@@ -28,18 +30,36 @@ app/
   robots.ts
   sitemap.ts
 components/
+  admin/
   Card.tsx
   Footer.tsx
   Hero.tsx
   Navbar.tsx
   SectionHeader.tsx
 lib/
+  auth.ts
+  cms.ts
+  defaults.ts
   site.ts
 public/
   references/
   stocktake-dashboard.svg
   og-image.svg
 ```
+
+## CMS
+
+Admin URL:
+
+```text
+/admin
+```
+
+Supabase setup:
+
+- `.env.local.example`
+- `supabase/schema.sql`
+- `docs/CMS_SETUP.md`
 
 ## Updating Reference Images
 
