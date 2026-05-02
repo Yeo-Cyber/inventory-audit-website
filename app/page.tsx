@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Card } from "@/components/Card";
 import { Hero } from "@/components/Hero";
+import { InteractiveShowcase } from "@/components/InteractiveShowcase";
 import { SectionHeader } from "@/components/SectionHeader";
 import {
   defaultMetrics,
@@ -142,6 +143,8 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <InteractiveShowcase />
+
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
         <SectionHeader
           eyebrow="Product Kit"
@@ -152,7 +155,7 @@ export default async function HomePage() {
           {productKits.map((kit) => (
             <article
               key={kit.id ?? kit.title}
-              className="rounded-lg border border-neutral-200 bg-white p-6 shadow-sm"
+              className="rounded-lg border border-neutral-200 bg-gradient-to-br from-white via-yellow-50/45 to-blue-50/50 p-6 shadow-sm shadow-neutral-200/60 transition hover:border-yellow-300 hover:shadow-md"
             >
               <p className="text-sm font-bold text-blue-700">{kit.price ?? kit.label}</p>
               <h3 className="mt-3 text-2xl font-black text-neutral-950">{kit.title}</h3>

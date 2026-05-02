@@ -26,7 +26,7 @@ export default function AdminDashboardPage() {
           <Link
             key={card.href}
             href={card.href}
-            className="rounded-lg border border-neutral-200 bg-white p-6 shadow-sm hover:border-yellow-400"
+            className="rounded-lg border border-neutral-200 bg-gradient-to-br from-white via-yellow-50/45 to-blue-50/50 p-6 shadow-sm shadow-neutral-200/60 hover:border-yellow-400"
           >
             <p className="text-xl font-black">{card.title}</p>
             <p className="mt-2 text-sm text-neutral-600">Create, edit, update, and delete content.</p>

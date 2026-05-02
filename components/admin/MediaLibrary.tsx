@@ -26,12 +26,12 @@ export function MediaLibrary({ initialMedia }: { initialMedia: Media[] }) {
   return (
     <div>
       <h1 className="text-3xl font-black">Media Library</h1>
-      <div className="mt-6 rounded-lg border border-neutral-200 bg-white p-6">
+      <div className="mt-6 rounded-lg border border-neutral-200 bg-gradient-to-br from-white via-yellow-50/35 to-blue-50/40 p-6 shadow-sm shadow-neutral-200/60">
         <input type="file" accept="image/*" onChange={upload} />
       </div>
       <div className="mt-6 grid gap-5 md:grid-cols-3">
         {media.map((item) => (
-          <article key={item.id} className="rounded-lg border border-neutral-200 bg-white p-4">
+          <article key={item.id} className="rounded-lg border border-neutral-200 bg-gradient-to-br from-white via-yellow-50/35 to-blue-50/40 p-4 shadow-sm shadow-neutral-200/60">
             <img src={item.url} alt={item.alt_text} className="aspect-[4/3] w-full rounded-md object-cover" />
             <p className="mt-3 break-all text-xs text-neutral-600">{item.url}</p>
           </article>

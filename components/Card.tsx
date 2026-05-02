@@ -14,7 +14,7 @@ export function Card({ title, description, label, tone = "light" }: CardProps) {
         "rounded-lg border p-6 transition",
         dark
           ? "border-white/10 bg-white/5 hover:bg-white/10"
-          : "border-neutral-200 bg-white shadow-sm shadow-neutral-200/50 hover:border-neutral-300",
+          : "border-neutral-200 bg-gradient-to-br from-white via-yellow-50/45 to-blue-50/50 shadow-sm shadow-neutral-200/60 hover:border-yellow-300 hover:shadow-md",
       ].join(" ")}
     >
       {label ? (

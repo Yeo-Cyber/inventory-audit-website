@@ -199,7 +199,7 @@ export function AdminEditor({
       </div>
 
       {mode === "content" ? (
-        <section className="mt-6 grid gap-4 rounded-lg border border-neutral-200 bg-white p-6">
+        <section className="mt-6 grid gap-4 rounded-lg border border-neutral-200 bg-gradient-to-br from-white via-yellow-50/35 to-blue-50/40 p-6 shadow-sm shadow-neutral-200/60">
           {fields.map((field) => renderField(field, content, setContent))}
           <div className="flex gap-3">
             <button onClick={saveContent} className="rounded-md bg-neutral-950 px-4 py-2 text-sm font-black text-white">
@@ -212,7 +212,7 @@ export function AdminEditor({
         </section>
       ) : (
         <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_1.2fr]">
-          <section className="grid gap-4 rounded-lg border border-neutral-200 bg-white p-6">
+          <section className="grid gap-4 rounded-lg border border-neutral-200 bg-gradient-to-br from-white via-yellow-50/35 to-blue-50/40 p-6 shadow-sm shadow-neutral-200/60">
             <h2 className="text-xl font-black">{editing ? "Edit" : "Create"}</h2>
             {fields.map((field) => renderField(field, draft, setDraft))}
             <div className="flex flex-wrap gap-3">
@@ -232,7 +232,7 @@ export function AdminEditor({
           </section>
           <section className="grid gap-3">
             {rows.map((row) => (
-              <article key={row.id ?? JSON.stringify(row.data)} className="rounded-lg border border-neutral-200 bg-white p-4">
+              <article key={row.id ?? JSON.stringify(row.data)} className="rounded-lg border border-neutral-200 bg-gradient-to-br from-white via-yellow-50/35 to-blue-50/40 p-4 shadow-sm shadow-neutral-200/60">
                 <p className="text-xs font-bold uppercase text-blue-700">{row.data.label}</p>
                 <h3 className="mt-1 text-lg font-black">{row.data.title || row.data.label}</h3>
                 <p className="mt-2 text-sm text-neutral-600">{row.data.description || row.data.href}</p>

@@ -26,7 +26,7 @@ export default function HowItWorksPage() {
           />
           <div className="mt-10 grid gap-5 md:grid-cols-5">
             {steps.map((step, index) => (
-              <div key={step} className="rounded-lg border border-neutral-200 bg-yellow-50 p-5">
+              <div key={step} className="rounded-lg border border-neutral-200 bg-gradient-to-br from-yellow-50 via-white to-blue-50/60 p-5 shadow-sm shadow-neutral-200/60">
                 <p className="text-sm font-black text-blue-700">0{index + 1}</p>
                 <h2 className="mt-3 text-lg font-black text-neutral-950">{step}</h2>
               </div>

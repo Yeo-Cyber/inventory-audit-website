@@ -26,7 +26,7 @@ export default async function PricingPage() {
             {packages.map((item) => (
               <article
                 key={item.id ?? item.title}
-                className="rounded-lg border border-neutral-200 bg-white p-6 shadow-sm"
+                className="rounded-lg border border-neutral-200 bg-gradient-to-br from-white via-yellow-50/45 to-blue-50/50 p-6 shadow-sm shadow-neutral-200/60 transition hover:border-yellow-300 hover:shadow-md"
               >
                 <p className="text-sm font-bold text-blue-700">{item.label}</p>
                 <h2 className="mt-3 text-2xl font-black text-neutral-950">{item.title}</h2>

@@ -41,3 +41,13 @@ a {
   background: #f6c400;
   color: #121212;
 }
+
+@keyframes stocktake-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}

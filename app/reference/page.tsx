@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { LogoMarquee } from "@/components/LogoMarquee";
 import { SectionHeader } from "@/components/SectionHeader";
 import { getReferenceCases } from "@/lib/cms";
 import { referenceImages, referenceSlug } from "@/lib/reference";
@@ -14,6 +15,12 @@ export const metadata: Metadata = {
 
 export default async function ReferencePage() {
   const referenceCases = await getReferenceCases();
+  const customerNames = referenceCases
+    .map((item) => ({
+      label: item.label || item.title,
+      logoUrl: item.customer_logo_url,
+    }))
+    .filter((item) => item.label);
 
   return (
     <main>
@@ -34,7 +41,7 @@ export default async function ReferencePage() {
                 <Link
                   key={item.id ?? item.title}
                   href={href}
-                  className="group overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+                  className="group overflow-hidden rounded-lg border border-neutral-200 bg-gradient-to-br from-white via-yellow-50/45 to-blue-50/50 shadow-sm shadow-neutral-200/60 transition hover:-translate-y-1 hover:border-yellow-300 hover:shadow-md"
                 >
                   <div className="aspect-[4/3] bg-neutral-100">
                     <img
@@ -83,6 +90,7 @@ export default async function ReferencePage() {
         </div>
       </section>
 
+      <LogoMarquee items={customerNames.length ? customerNames : undefined} />
     </main>
   );
 }

@@ -38,7 +38,7 @@ export default async function AboutPage() {
             description={about.description}
           />
           <div className="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="rounded-lg border border-neutral-200 bg-yellow-50 p-8">
+            <div className="rounded-lg border border-neutral-200 bg-gradient-to-br from-yellow-50 via-white to-blue-50/60 p-8 shadow-sm shadow-neutral-200/60">
               <p className="text-sm font-bold uppercase tracking-[0.16em] text-blue-700">
                 {about.model_label}
               </p>
@@ -64,4 +64,3 @@ export default async function AboutPage() {
     </main>
   );
 }
-

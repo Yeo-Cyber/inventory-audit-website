@@ -82,7 +82,7 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
                 .map((result) => result.trim())
                 .filter(Boolean)
                 .map((result) => (
-                  <li key={result} className="rounded-lg border border-neutral-200 bg-white p-5 text-sm leading-6 shadow-sm">
+                  <li key={result} className="rounded-lg border border-neutral-200 bg-gradient-to-br from-white via-yellow-50/45 to-blue-50/50 p-5 text-sm leading-6 shadow-sm shadow-neutral-200/60">
                     <span className="mb-4 block size-2 rounded-full bg-yellow-400" />
                     {result}
                   </li>
@@ -115,4 +115,3 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
     </main>
   );
 }
-

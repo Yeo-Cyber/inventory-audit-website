@@ -24,6 +24,7 @@ export type CmsItem = {
   price?: string;
   href?: string;
   image_url?: string;
+  customer_logo_url?: string;
   gallery_urls?: string | string[];
   location?: string;
   period?: string;

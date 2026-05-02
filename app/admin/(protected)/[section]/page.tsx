@@ -58,6 +58,7 @@ const fields = {
     { name: "location", label: "พื้นที่/จังหวัด" },
     { name: "period", label: "ช่วงเวลา" },
     { name: "results", label: "ผลลัพธ์ (1 บรรทัดต่อ 1 ข้อ)", type: "textarea" as const },
+    { name: "customer_logo_url", label: "โลโก้ลูกค้า", type: "image" as const },
     { name: "image_url", label: "รูปผลงาน", type: "image" as const },
     { name: "gallery_urls", label: "รูปรายละเอียด Reference (สูงสุด 10 รูป)", type: "gallery" as const },
     { name: "sort_order", label: "Sort Order", type: "number" as const },
