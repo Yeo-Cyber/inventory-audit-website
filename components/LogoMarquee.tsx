@@ -1,6 +1,6 @@
 type LogoMarqueeProps = {
   title?: string;
-  items?: Array<string | { label: string; logoUrl?: string }>;
+  items?: Array<string | { label: string; logoUrl?: string; href?: string }>;
 };
 
 const defaultItems = [
@@ -24,8 +24,8 @@ function logoMark(label: string) {
     .toUpperCase();
 }
 
-function normalizeItem(item: string | { label: string; logoUrl?: string }) {
-  return typeof item === "string" ? { label: item, logoUrl: "" } : item;
+function normalizeItem(item: string | { label: string; logoUrl?: string; href?: string }) {
+  return typeof item === "string" ? { label: item, logoUrl: "", href: "" } : item;
 }
 
 export function LogoMarquee({
@@ -50,11 +50,8 @@ export function LogoMarquee({
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-white to-transparent" />
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-white to-transparent" />
           <div className="flex w-max animate-[stocktake-marquee_28s_linear_infinite] gap-8 hover:[animation-play-state:paused]">
-            {logos.map((item, index) => (
-              <div
-                key={`${item.label}-${index}`}
-                className="grid h-28 w-44 shrink-0 place-items-center rounded-lg border border-neutral-200 bg-gradient-to-br from-white via-yellow-50/45 to-blue-50/50 p-4 shadow-sm shadow-neutral-200/60"
-              >
+            {logos.map((item, index) => {
+              const content = (
                 <div className="grid gap-3 text-center">
                   {item.logoUrl ? (
                     <div className="mx-auto grid h-14 w-28 place-items-center rounded-md bg-white p-2 shadow-sm ring-1 ring-neutral-200">
@@ -69,8 +66,21 @@ export function LogoMarquee({
                     {item.label}
                   </p>
                 </div>
-              </div>
-            ))}
+              );
+
+              const className =
+                "grid h-28 w-44 shrink-0 place-items-center rounded-lg border border-neutral-200 bg-gradient-to-br from-white via-yellow-50/45 to-blue-50/50 p-4 shadow-sm shadow-neutral-200/60 transition hover:border-yellow-300 hover:shadow-md";
+
+              return item.href ? (
+                <a key={`${item.label}-${index}`} href={item.href} className={className}>
+                  {content}
+                </a>
+              ) : (
+                <div key={`${item.label}-${index}`} className={className}>
+                  {content}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

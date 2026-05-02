@@ -1,6 +1,7 @@
 import {
   defaultAbout,
   defaultContact,
+  defaultCustomerLogos,
   defaultHardware,
   defaultHomepage,
   defaultMetrics,
@@ -155,6 +156,10 @@ export async function getPricingPackages() {
 
 export async function getReferenceCases() {
   return getCollection("reference", defaultReferences);
+}
+
+export async function getCustomerLogos() {
+  return getCollection("customer_logos", defaultCustomerLogos);
 }
 
 export { defaultMetrics };

@@ -216,6 +216,41 @@ export const defaultReferences = [
   },
 ];
 
+export const defaultCustomerLogos = [
+  {
+    label: "Customer",
+    title: "SME Warehouse",
+    description: "ลูกค้ากลุ่มคลังสินค้า SME",
+    image_url: "",
+    href: "",
+    sort_order: 1,
+  },
+  {
+    label: "Customer",
+    title: "Factory Audit",
+    description: "ลูกค้ากลุ่มโรงงานและคลังวัตถุดิบ",
+    image_url: "",
+    href: "",
+    sort_order: 2,
+  },
+  {
+    label: "Customer",
+    title: "Restaurant Chain",
+    description: "ลูกค้ากลุ่มร้านอาหารหลายสาขา",
+    image_url: "",
+    href: "",
+    sort_order: 3,
+  },
+  {
+    label: "Customer",
+    title: "Online Seller",
+    description: "ลูกค้ากลุ่มร้านค้าออนไลน์",
+    image_url: "",
+    href: "",
+    sort_order: 4,
+  },
+];
+
 export const defaultContact = {
   email: "sales@stocktakepro.example",
   phone: "02-014-0128",

@@ -4,6 +4,7 @@ import { MediaLibrary } from "@/components/admin/MediaLibrary";
 import {
   getAboutInfo,
   getContactInfo,
+  getCustomerLogos,
   getHardwareProducts,
   getPricingPackages,
   getReferenceCases,
@@ -61,6 +62,14 @@ const fields = {
     { name: "customer_logo_url", label: "โลโก้ลูกค้า", type: "image" as const },
     { name: "image_url", label: "รูปผลงาน", type: "image" as const },
     { name: "gallery_urls", label: "รูปรายละเอียด Reference (สูงสุด 10 รูป)", type: "gallery" as const },
+    { name: "sort_order", label: "Sort Order", type: "number" as const },
+  ],
+  "customer-logos": [
+    { name: "title", label: "ชื่อลูกค้า / ชื่อโลโก้" },
+    { name: "label", label: "ประเภท / หมวดหมู่" },
+    { name: "description", label: "คำอธิบายภายใน CMS", type: "textarea" as const },
+    { name: "image_url", label: "ไฟล์โลโก้", type: "image" as const },
+    { name: "href", label: "ลิงก์เมื่อคลิกโลโก้ (ไม่บังคับ)" },
     { name: "sort_order", label: "Sort Order", type: "number" as const },
   ],
 };
@@ -150,14 +159,16 @@ export default async function AdminSectionPage({ params }: { params: Promise<Par
     hardware: getHardwareProducts,
     pricing: getPricingPackages,
     reference: getReferenceCases,
+    "customer-logos": getCustomerLogos,
   };
   const items = await loaders[section as keyof typeof loaders]();
+  const collectionSection = section === "customer-logos" ? "customer_logos" : section;
 
   return (
     <AdminEditor
-      title={section.charAt(0).toUpperCase() + section.slice(1)}
+      title={section === "customer-logos" ? "Customer Logos" : section.charAt(0).toUpperCase() + section.slice(1)}
       mode="collection"
-      section={section}
+      section={collectionSection}
       fields={config}
       initialRows={toRows(items)}
     />

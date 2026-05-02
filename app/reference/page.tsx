@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import { SectionHeader } from "@/components/SectionHeader";
-import { getReferenceCases } from "@/lib/cms";
+import { getCustomerLogos, getReferenceCases } from "@/lib/cms";
 import { referenceImages, referenceSlug } from "@/lib/reference";
 
 export const dynamic = "force-dynamic";
@@ -14,8 +14,18 @@ export const metadata: Metadata = {
 };
 
 export default async function ReferencePage() {
-  const referenceCases = await getReferenceCases();
-  const customerNames = referenceCases
+  const [referenceCases, customerLogos] = await Promise.all([
+    getReferenceCases(),
+    getCustomerLogos(),
+  ]);
+  const logoItems = customerLogos
+    .map((item) => ({
+      label: item.title || item.label || "Customer",
+      logoUrl: item.image_url,
+      href: item.href,
+    }))
+    .filter((item) => item.label);
+  const referenceLogoItems = referenceCases
     .map((item) => ({
       label: item.label || item.title,
       logoUrl: item.customer_logo_url,
@@ -24,6 +34,8 @@ export default async function ReferencePage() {
 
   return (
     <main>
+      <LogoMarquee items={logoItems.length ? logoItems : referenceLogoItems.length ? referenceLogoItems : undefined} />
+
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
           <SectionHeader
@@ -89,8 +101,6 @@ export default async function ReferencePage() {
           </div>
         </div>
       </section>
-
-      <LogoMarquee items={customerNames.length ? customerNames : undefined} />
     </main>
   );
 }
