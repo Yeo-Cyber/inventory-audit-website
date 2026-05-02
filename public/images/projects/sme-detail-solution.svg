@@ -1,0 +1,38 @@
+<svg width="1100" height="760" viewBox="0 0 1100 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1100" height="760" rx="40" fill="#F8FAFC"/>
+  <circle cx="185" cy="155" r="190" fill="#DBEAFE"/>
+  <circle cx="930" cy="625" r="210" fill="#FEF3C7"/>
+  <path d="M220 380H880" stroke="#CBD5E1" stroke-width="14" stroke-linecap="round"/>
+  <path d="M290 380H810" stroke="#2563EB" stroke-width="8" stroke-linecap="round" stroke-dasharray="22 26"/>
+  <g>
+    <rect x="70" y="230" width="220" height="210" rx="30" fill="white" stroke="#BFDBFE" stroke-width="4"/>
+    <rect x="118" y="278" width="78" height="88" rx="16" fill="#22C55E"/>
+    <path d="M214 286H242M214 322H242M214 358H242" stroke="#94A3B8" stroke-width="12" stroke-linecap="round"/>
+    <text x="180" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="900" fill="#0F172A">Excel</text>
+  </g>
+  <g>
+    <rect x="310" y="230" width="220" height="210" rx="30" fill="white" stroke="#BFDBFE" stroke-width="4"/>
+    <rect x="368" y="272" width="94" height="112" rx="18" fill="#DBEAFE" stroke="#0F172A" stroke-width="7"/>
+    <path d="M390 328H440" stroke="#0F172A" stroke-width="12" stroke-linecap="round"/>
+    <path d="M346 396H494" stroke="#2563EB" stroke-width="14" stroke-linecap="round"/>
+    <text x="420" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="900" fill="#0F172A">Scan</text>
+  </g>
+  <g>
+    <rect x="570" y="230" width="220" height="210" rx="30" fill="white" stroke="#BFDBFE" stroke-width="4"/>
+    <circle cx="652" cy="322" r="48" fill="#FEF3C7" stroke="#FACC15" stroke-width="6"/>
+    <path d="M650 292V332" stroke="#0F172A" stroke-width="10" stroke-linecap="round"/>
+    <path d="M650 354H651" stroke="#0F172A" stroke-width="12" stroke-linecap="round"/>
+    <path d="M715 292H755M715 332H742M715 372H768" stroke="#94A3B8" stroke-width="12" stroke-linecap="round"/>
+    <text x="680" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="900" fill="#0F172A">Verify Diff</text>
+  </g>
+  <g>
+    <rect x="810" y="230" width="220" height="210" rx="30" fill="white" stroke="#BFDBFE" stroke-width="4"/>
+    <rect x="862" y="300" width="28" height="70" rx="8" fill="#93C5FD"/>
+    <rect x="908" y="268" width="28" height="102" rx="8" fill="#2563EB"/>
+    <rect x="954" y="330" width="28" height="40" rx="8" fill="#FACC15"/>
+    <path d="M860 282H982" stroke="#0F172A" stroke-width="10" stroke-linecap="round"/>
+    <text x="920" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="900" fill="#0F172A">Report</text>
+  </g>
+  <rect x="178" y="548" width="744" height="94" rx="28" fill="#0F172A"/>
+  <text x="550" y="606" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">Count / Verify / Diff / Export Dashboard</text>
+</svg>

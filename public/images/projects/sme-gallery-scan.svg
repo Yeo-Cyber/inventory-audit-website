@@ -1,0 +1,12 @@
+<svg width="920" height="620" viewBox="0 0 920 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="920" height="620" rx="34" fill="#F8FBFF"/>
+  <circle cx="690" cy="165" r="160" fill="#FEF3C7"/>
+  <rect x="210" y="100" width="240" height="360" rx="34" fill="#DBEAFE" stroke="#0F172A" stroke-width="8"/>
+  <path d="M260 275H402" stroke="#0F172A" stroke-width="18" stroke-linecap="round"/>
+  <path d="M270 320H390" stroke="#0F172A" stroke-width="18" stroke-linecap="round"/>
+  <path d="M482 270H685" stroke="#2563EB" stroke-width="14" stroke-linecap="round"/>
+  <path d="M482 320H650" stroke="#93C5FD" stroke-width="14" stroke-linecap="round"/>
+  <path d="M550 210L686 210L718 256L690 326L554 326L520 278L550 210Z" fill="#0F172A"/>
+  <circle cx="590" cy="266" r="34" fill="#2563EB"/>
+  <text x="460" y="548" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" font-weight="900" fill="#0F172A">Mobile Barcode Scan</text>
+</svg>

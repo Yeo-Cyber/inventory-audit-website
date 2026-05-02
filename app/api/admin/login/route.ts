@@ -3,9 +3,16 @@ import { setAdminSession } from "@/lib/auth";
 import { isSupabaseAdminConfigured, supabaseRequest } from "@/lib/cms";
 
 export async function POST(request: Request) {
-  const body = (await request.json()) as { username?: string; password?: string };
+  const contentType = request.headers.get("content-type") || "";
+  const isFormPost = contentType.includes("application/x-www-form-urlencoded") ||
+    contentType.includes("multipart/form-data");
+  const body = isFormPost
+    ? Object.fromEntries((await request.formData()).entries())
+    : ((await request.json()) as { username?: string; password?: string });
+  const username = typeof body.username === "string" ? body.username : "";
+  const password = typeof body.password === "string" ? body.password : "";
 
-  if (!body.username || !body.password) {
+  if (!username || !password) {
     return NextResponse.json({ error: "Username and password are required." }, { status: 400 });
   }
 
@@ -21,8 +28,8 @@ export async function POST(request: Request) {
     {
       method: "POST",
       body: JSON.stringify({
-        input_username: body.username,
-        input_password: body.password,
+        input_username: username,
+        input_password: password,
       }),
     },
     true,
@@ -32,7 +39,11 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid username or password." }, { status: 401 });
   }
 
-  await setAdminSession(body.username);
+  await setAdminSession(username);
+
+  if (isFormPost) {
+    return NextResponse.redirect(new URL("/admin", request.url), { status: 303 });
+  }
 
   return NextResponse.json({ ok: true });
 }

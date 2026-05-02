@@ -1,0 +1,13 @@
+<svg width="920" height="620" viewBox="0 0 920 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="920" height="620" rx="34" fill="#F8FBFF"/>
+  <circle cx="205" cy="450" r="165" fill="#DBEAFE"/>
+  <rect x="155" y="105" width="610" height="385" rx="34" fill="white" stroke="#CBD5E1" stroke-width="4"/>
+  <rect x="215" y="170" width="90" height="250" rx="16" fill="#DBEAFE"/>
+  <rect x="360" y="300" width="56" height="120" rx="12" fill="#93C5FD"/>
+  <rect x="450" y="245" width="56" height="175" rx="12" fill="#2563EB"/>
+  <rect x="540" y="340" width="56" height="80" rx="12" fill="#FACC15"/>
+  <path d="M360 190H670M360 230H630" stroke="#0F172A" stroke-width="16" stroke-linecap="round"/>
+  <circle cx="715" cy="170" r="54" fill="#22C55E"/>
+  <path d="M690 170L710 190L744 150" stroke="white" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="460" y="548" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" font-weight="900" fill="#0F172A">Diff Report &amp; Dashboard</text>
+</svg>

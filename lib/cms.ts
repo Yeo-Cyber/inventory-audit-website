@@ -221,11 +221,35 @@ export async function getProjectDetails() {
     return defaultProjectDetails;
   }
 
-  return rows.map((row, index) => ({
-    ...normalizeProjectDetail(row.data, defaultProjectDetails[index] ?? defaultProjectDetails[0]),
+  const rowsBySlug = new Map(
+    rows.map((row) => [String(row.data.slug || ""), row]),
+  );
+  const mergedDefaults = defaultProjectDetails.map((fallback, index) => {
+    const row = rowsBySlug.get(fallback.slug);
+    rowsBySlug.delete(fallback.slug);
+
+    if (!row) {
+      return {
+        ...fallback,
+        sort_order: index + 1,
+      };
+    }
+
+    return {
+      ...normalizeProjectDetail(row.data, fallback),
+      id: row.id,
+      sort_order: row.sort_order,
+    };
+  });
+  const customRows = Array.from(rowsBySlug.values()).map((row, index) => ({
+    ...normalizeProjectDetail(row.data, defaultProjectDetails[0]),
     id: row.id,
-    sort_order: row.sort_order,
+    sort_order: row.sort_order ?? defaultProjectDetails.length + index + 1,
   }));
+
+  return [...mergedDefaults, ...customRows].sort(
+    (a, b) => (a.sort_order ?? 100) - (b.sort_order ?? 100),
+  );
 }
 
 export { defaultMetrics };

@@ -32,7 +32,12 @@ export function LoginForm() {
   }
 
   return (
-    <form onSubmit={submit} className="grid gap-4 rounded-lg border border-neutral-200 bg-gradient-to-br from-white via-yellow-50/35 to-blue-50/40 p-6 shadow-sm shadow-neutral-200/60">
+    <form
+      action="/api/admin/login"
+      method="post"
+      onSubmit={submit}
+      className="grid gap-4 rounded-lg border border-neutral-200 bg-gradient-to-br from-white via-yellow-50/35 to-blue-50/40 p-6 shadow-sm shadow-neutral-200/60"
+    >
       <label className="grid gap-2 text-sm font-bold">
         Username
         <input name="username" className="rounded-md border border-neutral-300 px-3 py-2" />

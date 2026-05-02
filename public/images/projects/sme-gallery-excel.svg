@@ -1,0 +1,9 @@
+<svg width="920" height="620" viewBox="0 0 920 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="920" height="620" rx="34" fill="#F8FBFF"/>
+  <circle cx="170" cy="135" r="165" fill="#DBEAFE"/>
+  <rect x="150" y="110" width="620" height="390" rx="34" fill="white" stroke="#CBD5E1" stroke-width="4"/>
+  <rect x="210" y="170" width="120" height="250" rx="20" fill="#22C55E"/>
+  <path d="M372 190H690M372 250H690M372 310H690M372 370H620" stroke="#CBD5E1" stroke-width="18" stroke-linecap="round"/>
+  <path d="M240 230L266 256L304 202" stroke="white" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="460" y="548" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" font-weight="900" fill="#0F172A">Excel Master File</text>
+</svg>

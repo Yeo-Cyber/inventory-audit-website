@@ -29,6 +29,11 @@ export const defaultHomepage = {
 
 export const defaultAbout = {
   eyebrow: "About StockTake Pro",
+  hero_image_url: "",
+  business_image_url: "",
+  process_image_url: "",
+  trust_image_url: "",
+  cta_image_url: "",
   title: "เราไม่ได้ขายแค่การนับของ แต่ขายตัวเลขที่เจ้าของธุรกิจเชื่อถือได้",
   description:
     "ธุรกิจจำนวนมากมียอดในระบบ แต่ไม่รู้ว่าสินค้าจริงอยู่ตรงไหน ขาดเท่าไหร่ หรือเงินจมอยู่กับสินค้าอะไร StockTake Pro จึงออกแบบบริการและซอฟต์แวร์ให้ตอบคำถามสำคัญที่สุด: มีเท่าไหร่ นับได้เท่าไหร่ ขาดเกินเท่าไหร่ และสินค้าอยู่ที่ไหน",

@@ -108,14 +108,42 @@ export function AdminEditor({
           />
         )}
         {field.type === "image" ? (
-          <input
-            type="file"
-            accept="image/*"
-            onChange={(event) => {
-              const file = event.target.files?.[0];
-              if (file) upload(file, (url) => setData({ ...data, [field.name]: url }));
-            }}
-          />
+          <div className="grid gap-3">
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(event) => {
+                const file = event.target.files?.[0];
+                if (file) upload(file, (url) => setData({ ...data, [field.name]: url }));
+              }}
+            />
+            {value ? (
+              <div className="grid gap-3 rounded-lg border border-neutral-200 bg-white p-3">
+                <img
+                  src={value}
+                  alt=""
+                  className="max-h-52 w-full rounded-md border border-neutral-200 object-contain"
+                />
+                <div className="flex flex-wrap items-center gap-2">
+                  <a
+                    href={value}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-md border border-neutral-300 px-3 py-2 text-xs font-black text-neutral-700"
+                  >
+                    Open Image
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => setData({ ...data, [field.name]: "" })}
+                    className="rounded-md bg-red-600 px-3 py-2 text-xs font-black text-white"
+                  >
+                    Delete Image
+                  </button>
+                </div>
+              </div>
+            ) : null}
+          </div>
         ) : null}
         {field.type === "gallery" ? (
           <div className="grid gap-2">

@@ -1,12 +1,15 @@
+import type { ReactNode } from "react";
+
 type CardProps = {
   title: string;
   description: string;
   label?: string;
   imageUrl?: string;
+  icon?: ReactNode;
   tone?: "light" | "dark";
 };
 
-export function Card({ title, description, label, imageUrl, tone = "light" }: CardProps) {
+export function Card({ title, description, label, imageUrl, icon, tone = "light" }: CardProps) {
   const dark = tone === "dark";
 
   return (
@@ -23,6 +26,7 @@ export function Card({ title, description, label, imageUrl, tone = "light" }: Ca
           <img src={imageUrl} alt={title} className="h-full w-full object-cover" />
         </div>
       ) : null}
+      {icon ? <div className="mb-5">{icon}</div> : null}
       {label ? (
         <p
           className={[
