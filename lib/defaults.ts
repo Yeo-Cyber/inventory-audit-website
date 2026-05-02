@@ -88,6 +88,33 @@ export const defaultServices = [
   },
 ];
 
+export const defaultSolutions = [
+  {
+    label: "SME / Online Seller",
+    title: "ตรวจนับคลังสินค้าออนไลน์",
+    description:
+      "ช่วยเจ้าของกิจการรู้ยอดจริง สินค้าขาดเกิน และตำแหน่งจัดเก็บ โดยเริ่มจากไฟล์ Excel เดิมที่ใช้อยู่",
+    image_url: "",
+    sort_order: 1,
+  },
+  {
+    label: "Restaurant / Cafe",
+    title: "ตรวจวัตถุดิบและของเสีย",
+    description:
+      "ตรวจรอบสั้นทุกเดือน เพื่อหาของหาย ของหมดอายุ และต้นทุนจมจากวัตถุดิบที่ควบคุมยาก",
+    image_url: "",
+    sort_order: 2,
+  },
+  {
+    label: "Factory / Warehouse",
+    title: "ตรวจนับเพื่อปิดงบและควบคุมการผลิต",
+    description:
+      "รองรับ barcode เป็นหลัก และเปิดทาง customize QR code สำหรับ lot, expiry date หรือ serial number",
+    image_url: "",
+    sort_order: 3,
+  },
+];
+
 export const defaultSoftware = [
   {
     label: "Mobile App",

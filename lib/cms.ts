@@ -9,6 +9,7 @@ import {
   defaultReferences,
   defaultServices,
   defaultSiteConfig,
+  defaultSolutions,
   defaultSoftware,
 } from "@/lib/defaults";
 
@@ -133,6 +134,10 @@ export async function getNavigation() {
 
 export async function getServices() {
   return getCollection("services", defaultServices);
+}
+
+export async function getSolutions() {
+  return getCollection("solution", defaultSolutions);
 }
 
 export async function getSoftwareProducts() {

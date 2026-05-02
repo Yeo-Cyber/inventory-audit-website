@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
-import { projects } from "@/lib/site";
+import { getSolutions } from "@/lib/cms";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "โซลูชัน",
@@ -9,7 +11,9 @@ export const metadata: Metadata = {
     "โซลูชันตรวจนับสต๊อกสำหรับ SME ร้านอาหาร โรงงาน คลังสินค้า และ Hypermarket ที่ต้องการรายงานขาดเกินพร้อมใช้",
 };
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const solutions = await getSolutions();
+
   return (
     <main>
       <section className="bg-white">
@@ -20,12 +24,12 @@ export default function ProjectsPage() {
             description="ไม่จำเป็นต้องเริ่มจากทั้งองค์กร เราสามารถเริ่มจากคลังเล็ก ร้านหลายสาขา หรือโซนสินค้ามูลค่าสูง แล้วค่อยขยายเมื่อเห็นผลจริง"
           />
           <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {projects.map((project) => (
+            {solutions.map((solution) => (
               <Card
-                key={project.title}
-                title={project.title}
-                description={project.description}
-                label={project.industry}
+                key={solution.id ?? solution.title}
+                title={solution.title}
+                description={solution.description}
+                label={solution.label}
               />
             ))}
           </div>
@@ -34,3 +38,4 @@ export default function ProjectsPage() {
     </main>
   );
 }
+

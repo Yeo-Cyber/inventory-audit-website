@@ -8,6 +8,7 @@ import {
   getPricingPackages,
   getReferenceCases,
   getServices,
+  getSolutions,
   getSoftwareProducts,
   supabaseRequest,
 } from "@/lib/cms";
@@ -18,6 +19,13 @@ const fields = {
     { name: "title", label: "Title" },
     { name: "description", label: "Description", type: "textarea" as const },
     { name: "image_url", label: "Service Image", type: "image" as const },
+    { name: "sort_order", label: "Sort Order", type: "number" as const },
+  ],
+  solution: [
+    { name: "label", label: "กลุ่มลูกค้า / Industry" },
+    { name: "title", label: "ชื่อโซลูชัน" },
+    { name: "description", label: "รายละเอียดโซลูชัน", type: "textarea" as const },
+    { name: "image_url", label: "รูปโซลูชัน", type: "image" as const },
     { name: "sort_order", label: "Sort Order", type: "number" as const },
   ],
   software: [
@@ -136,6 +144,7 @@ export default async function AdminSectionPage({ params }: { params: Promise<Par
 
   const loaders = {
     services: getServices,
+    solution: getSolutions,
     software: getSoftwareProducts,
     hardware: getHardwareProducts,
     pricing: getPricingPackages,
