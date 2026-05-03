@@ -66,8 +66,14 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
               {item.details ? <p className="mt-5 text-base leading-8 text-neutral-600">{item.details}</p> : null}
             </div>
 
-            <div className="overflow-hidden rounded-lg border border-neutral-200 bg-neutral-100 shadow-sm">
-              <InteractiveImage src={heroImage} alt={item.title} className="aspect-[4/3] w-full" />
+            <div className="overflow-hidden rounded-lg border border-neutral-200 bg-white p-6 shadow-sm">
+              <InteractiveImage
+                src={heroImage}
+                alt={item.title}
+                fit="contain"
+                className="flex h-[260px] w-full items-center justify-center"
+                imageClassName="max-h-full max-w-full"
+              />
             </div>
           </div>
         </div>
