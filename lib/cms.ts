@@ -1,6 +1,7 @@
 import {
   defaultAbout,
   defaultContact,
+  defaultCustomerReference,
   defaultCustomerLogos,
   defaultHardware,
   defaultHomepage,
@@ -9,6 +10,7 @@ import {
   defaultPricing,
   defaultReferences,
   defaultServices,
+  defaultServicesPage,
   defaultSiteConfig,
   defaultSolutions,
   defaultSoftware,
@@ -26,6 +28,12 @@ export type CmsItem = {
   price?: string;
   href?: string;
   image_url?: string;
+  benefit?: string;
+  features?: string | string[];
+  cta_text?: string;
+  cta_href?: string;
+  icon_key?: string;
+  tone?: string;
   customer_logo_url?: string;
   gallery_urls?: string | string[];
   location?: string;
@@ -186,6 +194,10 @@ export async function getServices() {
   return getCollection("services", defaultServices);
 }
 
+export async function getServicesPage() {
+  return getContentBlock("services_page", defaultServicesPage);
+}
+
 export async function getSolutions() {
   return getCollection("solution", defaultSolutions);
 }
@@ -207,7 +219,24 @@ export async function getReferenceCases() {
 }
 
 export async function getCustomerLogos() {
-  return getCollection("customer_logos", defaultCustomerLogos);
+  const rows = await supabaseRequest<Array<{ id: string; data: CmsItem; sort_order: number }>>(
+    "/rest/v1/collection_items?section=eq.customer_logos&select=id,data,sort_order&order=sort_order.asc,created_at.asc",
+  );
+
+  if (!rows) {
+    return defaultCustomerLogos;
+  }
+
+  return rows.map((row) => ({
+    ...row.data,
+    id: row.id,
+    section: "customer_logos",
+    sort_order: row.sort_order,
+  }));
+}
+
+export async function getCustomerReference() {
+  return getContentBlock("customer_reference", defaultCustomerReference);
 }
 
 export async function getProjectDetails() {

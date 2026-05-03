@@ -1,4 +1,5 @@
 type LogoMarqueeProps = {
+  eyebrow?: string;
   title?: string;
   items?: Array<string | { label: string; logoUrl?: string; href?: string }>;
 };
@@ -29,6 +30,7 @@ function normalizeItem(item: string | { label: string; logoUrl?: string; href?: 
 }
 
 export function LogoMarquee({
+  eyebrow = "Reference Network",
   title = "OUR CUSTOMER REFERENCED",
   items = defaultItems,
 }: LogoMarqueeProps) {
@@ -39,7 +41,7 @@ export function LogoMarquee({
       <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
         <div className="text-center">
           <p className="text-sm font-bold uppercase tracking-[0.16em] text-blue-700">
-            Reference Network
+            {eyebrow}
           </p>
           <h2 className="mt-3 text-3xl font-black tracking-tight text-neutral-950 sm:text-4xl">
             {title}
@@ -54,12 +56,18 @@ export function LogoMarquee({
               const content = (
                 <div className="grid gap-3 text-center">
                   {item.logoUrl ? (
-                    <div className="mx-auto grid h-14 w-28 place-items-center rounded-md bg-white p-2 shadow-sm ring-1 ring-neutral-200">
-                      <img src={item.logoUrl} alt={`${item.label} logo`} className="max-h-10 max-w-24 object-contain" />
+                    <div className="flex h-[120px] w-full items-center justify-center rounded-md bg-white p-4 shadow-sm ring-1 ring-neutral-200">
+                      <img
+                        src={item.logoUrl}
+                        alt={`${item.label} logo`}
+                        className="max-h-20 max-w-full object-contain"
+                      />
                     </div>
                   ) : (
-                    <div className="mx-auto grid size-14 place-items-center rounded-md bg-neutral-950 text-lg font-black text-yellow-300">
+                    <div className="flex h-[120px] w-full items-center justify-center rounded-md bg-white p-4 shadow-sm ring-1 ring-neutral-200">
+                      <span className="grid size-16 place-items-center rounded-md bg-neutral-950 text-lg font-black text-yellow-300">
                       {logoMark(item.label)}
+                      </span>
                     </div>
                   )}
                   <p className="text-xs font-black uppercase tracking-[0.12em] text-neutral-700">
@@ -69,7 +77,7 @@ export function LogoMarquee({
               );
 
               const className =
-                "grid h-28 w-44 shrink-0 place-items-center rounded-lg border border-neutral-200 bg-gradient-to-br from-white via-yellow-50/45 to-blue-50/50 p-4 shadow-sm shadow-neutral-200/60 transition hover:border-yellow-300 hover:shadow-md";
+                "grid w-52 shrink-0 place-items-center rounded-lg border border-neutral-200 bg-gradient-to-br from-white via-yellow-50/45 to-blue-50/50 p-4 shadow-sm shadow-neutral-200/60 transition hover:border-yellow-300 hover:shadow-md";
 
               return item.href ? (
                 <a key={`${item.label}-${index}`} href={item.href} className={className}>

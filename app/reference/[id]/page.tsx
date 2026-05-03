@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { InteractiveImage } from "@/components/InteractiveImage";
 import { getReferenceCases } from "@/lib/cms";
 import { matchesReferenceSlug, referenceImages } from "@/lib/reference";
 
@@ -66,7 +67,7 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
             </div>
 
             <div className="overflow-hidden rounded-lg border border-neutral-200 bg-neutral-100 shadow-sm">
-              <img src={heroImage} alt={item.title} className="aspect-[4/3] w-full object-cover" />
+              <InteractiveImage src={heroImage} alt={item.title} className="aspect-[4/3] w-full" />
             </div>
           </div>
         </div>
@@ -105,7 +106,7 @@ export default async function ReferenceDetailPage({ params }: { params: Promise<
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
               {gallery.map((url, index) => (
                 <div key={url} className="overflow-hidden rounded-lg border border-neutral-200 bg-neutral-100">
-                  <img src={url} alt={`${item.title} รูปที่ ${index + 1}`} className="aspect-square w-full object-cover" />
+                  <InteractiveImage src={url} alt={`${item.title} รูปที่ ${index + 1}`} className="aspect-square w-full" />
                 </div>
               ))}
             </div>

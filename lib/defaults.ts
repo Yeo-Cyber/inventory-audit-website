@@ -58,6 +58,50 @@ export const defaultMetrics = [
   { value: "Report", label: "รู้ทันทีว่ามีเท่าไหร่ นับได้เท่าไหร่ ขาดเกินเท่าไหร่" },
 ];
 
+export const defaultServicesPage = {
+  eyebrow: "Services",
+  hero_image_url: "",
+  hero_title: "เลือกบริการตามระดับความพร้อมของลูกค้า",
+  hero_description:
+    "ลูกค้าที่อยากประหยัดเริ่มจาก software only ได้ ส่วนลูกค้าที่ต้องการความเร็ว ความน่าเชื่อถือ และทีมคุมงาน สามารถขยับเป็น hardware หรือ managed audit ได้ทันที",
+  primary_cta_text: "ดูบริการ",
+  primary_cta_href: "#service-options",
+  secondary_cta_text: "ขอใบเสนอราคา",
+  secondary_cta_href: "/contact",
+  visual_label: "Service Model",
+  visual_image_url: "",
+  visual_report_title: "Report-ready workflow",
+  visual_report_description:
+    "ทุกระดับบริการออกแบบให้จบที่รายงาน: มีเท่าไหร่ นับได้เท่าไหร่ ขาด/เกินเท่าไหร่ และสินค้าอยู่ที่ไหน",
+  service_section_eyebrow: "Service Options",
+  service_section_image_url: "",
+  service_section_title: "เริ่มเล็กได้ และขยายเป็นทีมตรวจนับเต็มรูปแบบได้ทันที",
+  upgrade_eyebrow: "Upgrade Path",
+  upgrade_image_url: "",
+  upgrade_title: "เลือกระดับบริการตามงบ เวลา และความเสี่ยงของงาน",
+  upgrade_description:
+    "โมเดลบริการถูกออกแบบให้ลูกค้าเริ่มจากสิ่งที่พร้อมก่อน แล้วเพิ่มความเร็ว ความแม่นยำ หรือทีมคุมงานได้เมื่องานใหญ่ขึ้น",
+  level_1_title: "Software Only",
+  level_1_image_url: "",
+  level_1_description:
+    "เริ่มจากไฟล์ Excel เดิม เหมาะกับทีมที่ต้องการนับเองและควบคุมค่าใช้จ่าย",
+  level_2_title: "Hardware Kit",
+  level_2_image_url: "",
+  level_2_description:
+    "เพิ่ม scanner เพื่อให้นับเร็วขึ้น เหมาะกับ SKU จำนวนมากหรือพื้นที่คลังหลายโซน",
+  level_3_title: "Managed Audit",
+  level_3_image_url: "",
+  level_3_description:
+    "มีทีมงานและ supervisor คุม workflow พร้อมรายงานสำหรับตรวจสอบย้อนหลัง",
+  cta_eyebrow: "Ready to Start",
+  cta_image_url: "",
+  cta_title: "ไม่แน่ใจว่าควรเริ่มจาก Software, Hardware หรือทีมตรวจนับ?",
+  cta_description:
+    "ส่งข้อมูลจำนวน SKU พื้นที่จัดเก็บ และรูปแบบไฟล์ตั้งต้นให้ทีมเราช่วยแนะนำบริการที่เหมาะสม",
+  cta_button_text: "ขอใบเสนอราคา",
+  cta_button_href: "/contact",
+};
+
 export const defaultServices = [
   {
     label: "Service",
@@ -255,6 +299,13 @@ export const defaultCustomerLogos = [
     sort_order: 4,
   },
 ];
+
+export const defaultCustomerReference = {
+  eyebrow: "Reference Network",
+  title: "OUR CUSTOMER REFERENCED",
+  description:
+    "จัดการโลโก้ลูกค้าที่แสดงในแถบวิ่งของหน้า ผลงานที่ผ่านมา โดยแยกจากรายการผลงาน Reference",
+};
 
 export const defaultContact = {
   email: "sales@stocktakepro.example",

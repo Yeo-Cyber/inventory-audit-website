@@ -11,7 +11,7 @@ const menu = [
   { label: "Hardware", href: "/admin/hardware" },
   { label: "Pricing", href: "/admin/pricing" },
   { label: "ผลงานที่ผ่านมา", href: "/admin/reference" },
-  { label: "Customer Logos", href: "/admin/customer-logos" },
+  { label: "OUR CUSTOMER REFERENCED", href: "/admin/customer-logos" },
   { label: "Contact", href: "/admin/contact" },
   { label: "Media Library", href: "/admin/media" },
 ];

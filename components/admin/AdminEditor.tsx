@@ -51,6 +51,7 @@ export function AdminEditor({
   const [editing, setEditing] = useState<Row | null>(null);
   const [draft, setDraft] = useState<Record<string, string>>(emptyData(fields));
   const [message, setMessage] = useState("");
+  const isLogoCollection = section === "customer_logos";
 
   async function upload(file: File, target: (url: string) => void) {
     const form = new FormData();
@@ -264,7 +265,15 @@ export function AdminEditor({
                 <p className="text-xs font-bold uppercase text-blue-700">{row.data.label}</p>
                 <h3 className="mt-1 text-lg font-black">{row.data.title || row.data.label}</h3>
                 <p className="mt-2 text-sm text-neutral-600">{row.data.description || row.data.href}</p>
-                {row.data.image_url ? <img src={row.data.image_url} alt="" className="mt-3 h-24 w-full rounded-md object-cover" /> : null}
+                {row.data.image_url ? (
+                  <img
+                    src={row.data.image_url}
+                    alt=""
+                    className={`mt-3 h-24 w-full rounded-md border border-neutral-200 bg-white ${
+                      isLogoCollection ? "object-contain p-2" : "object-cover"
+                    }`}
+                  />
+                ) : null}
                 <div className="mt-4 flex gap-2">
                   <button
                     onClick={() => {

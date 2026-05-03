@@ -1,6 +1,5 @@
 import type { ComponentType } from "react";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -23,6 +22,7 @@ import {
   Utensils,
   Warehouse,
 } from "lucide-react";
+import { InteractiveImage } from "@/components/InteractiveImage";
 import { getProjectDetails } from "@/lib/cms";
 import { projects } from "@/lib/projects";
 import { SolutionFaqAccordion, SolutionWorkflowStepper } from "./SolutionInteractiveSections";
@@ -594,13 +594,10 @@ function PremiumDetailPage({ detail }: { detail: DetailConfig }) {
             </div>
           </div>
           <div className="overflow-hidden rounded-3xl border border-white bg-white shadow-2xl shadow-neutral-200/80">
-            <Image
+            <InteractiveImage
               src={detail.heroImage}
               alt={detail.heroAlt}
-              width={1200}
-              height={840}
-              priority
-              className="h-full w-full object-cover"
+              className="h-full w-full"
             />
           </div>
         </div>
@@ -651,12 +648,10 @@ function PremiumDetailPage({ detail }: { detail: DetailConfig }) {
             </ul>
           </div>
           <div className="order-first overflow-hidden rounded-3xl border border-white bg-white shadow-2xl shadow-neutral-200/80 lg:order-none">
-            <Image
+            <InteractiveImage
               src={detail.solutionImage}
               alt={detail.solutionAlt}
-              width={1100}
-              height={760}
-              className="h-full w-full object-cover"
+              className="h-full w-full"
             />
           </div>
         </div>
@@ -719,12 +714,10 @@ function PremiumDetailPage({ detail }: { detail: DetailConfig }) {
                 key={image.src}
                 className="overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-sm"
               >
-                <Image
+                <InteractiveImage
                   src={image.src}
                   alt={image.alt}
-                  width={920}
-                  height={620}
-                  className="h-full w-full object-cover transition duration-300 hover:scale-105"
+                  className="h-full w-full"
                 />
               </div>
             ))}

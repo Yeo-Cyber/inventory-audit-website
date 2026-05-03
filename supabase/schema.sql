@@ -136,6 +136,14 @@ values
   }'::jsonb
 ),
 (
+  'customer_reference',
+  '{
+    "eyebrow": "Reference Network",
+    "title": "OUR CUSTOMER REFERENCED",
+    "description": "Manage customer logos shown in the moving logo section on the reference page. This content is separate from reference case studies."
+  }'::jsonb
+),
+(
   'contact',
   '{
     "email": "sales@stocktakepro.example",

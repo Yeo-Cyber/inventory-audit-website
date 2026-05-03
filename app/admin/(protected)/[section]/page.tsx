@@ -5,11 +5,13 @@ import {
   getAboutInfo,
   getContactInfo,
   getCustomerLogos,
+  getCustomerReference,
   getHardwareProducts,
   getPricingPackages,
   getProjectDetails,
   getReferenceCases,
   getServices,
+  getServicesPage,
   getSolutions,
   getSoftwareProducts,
   supabaseRequest,
@@ -20,6 +22,12 @@ const fields = {
     { name: "label", label: "Label" },
     { name: "title", label: "Title" },
     { name: "description", label: "Description", type: "textarea" as const },
+    { name: "benefit", label: "Benefit Text", type: "textarea" as const },
+    { name: "features", label: "Feature List (1 line per item)", type: "textarea" as const },
+    { name: "icon_key", label: "Icon Key: service / software / hardware / enterprise" },
+    { name: "tone", label: "Card Color: blue / green / purple / yellow" },
+    { name: "cta_text", label: "Card CTA Text" },
+    { name: "cta_href", label: "Card CTA Link" },
     { name: "image_url", label: "Service Image", type: "image" as const },
     { name: "sort_order", label: "Sort Order", type: "number" as const },
   ],
@@ -174,6 +182,65 @@ export default async function AdminSectionPage({ params }: { params: Promise<Par
     );
   }
 
+  if (section === "services") {
+    const servicesPage = await getServicesPage();
+    const services = await getServices();
+
+    return (
+      <div className="grid gap-10">
+        <AdminEditor
+          title="Services Page Content"
+          mode="content"
+          contentKey="services_page"
+          initialContent={servicesPage}
+          fields={[
+            { name: "eyebrow", label: "Hero Eyebrow" },
+            { name: "hero_image_url", label: "Hero Image", type: "image" },
+            { name: "hero_title", label: "Hero Title", type: "textarea" },
+            { name: "hero_description", label: "Hero Description", type: "textarea" },
+            { name: "primary_cta_text", label: "Primary CTA Text" },
+            { name: "primary_cta_href", label: "Primary CTA Link" },
+            { name: "secondary_cta_text", label: "Secondary CTA Text" },
+            { name: "secondary_cta_href", label: "Secondary CTA Link" },
+            { name: "visual_label", label: "Visual Card Label" },
+            { name: "visual_image_url", label: "Visual Card Image", type: "image" },
+            { name: "visual_report_title", label: "Visual Report Title" },
+            { name: "visual_report_description", label: "Visual Report Description", type: "textarea" },
+            { name: "service_section_eyebrow", label: "Service Cards Section Eyebrow" },
+            { name: "service_section_image_url", label: "Service Cards Section Image", type: "image" },
+            { name: "service_section_title", label: "Service Cards Section Title", type: "textarea" },
+            { name: "upgrade_eyebrow", label: "Upgrade Section Eyebrow" },
+            { name: "upgrade_image_url", label: "Upgrade Section Image", type: "image" },
+            { name: "upgrade_title", label: "Upgrade Section Title", type: "textarea" },
+            { name: "upgrade_description", label: "Upgrade Section Description", type: "textarea" },
+            { name: "level_1_title", label: "Level 1 Title" },
+            { name: "level_1_image_url", label: "Level 1 Image", type: "image" },
+            { name: "level_1_description", label: "Level 1 Description", type: "textarea" },
+            { name: "level_2_title", label: "Level 2 Title" },
+            { name: "level_2_image_url", label: "Level 2 Image", type: "image" },
+            { name: "level_2_description", label: "Level 2 Description", type: "textarea" },
+            { name: "level_3_title", label: "Level 3 Title" },
+            { name: "level_3_image_url", label: "Level 3 Image", type: "image" },
+            { name: "level_3_description", label: "Level 3 Description", type: "textarea" },
+            { name: "cta_eyebrow", label: "Bottom CTA Eyebrow" },
+            { name: "cta_image_url", label: "Bottom CTA Background Image", type: "image" },
+            { name: "cta_title", label: "Bottom CTA Title", type: "textarea" },
+            { name: "cta_description", label: "Bottom CTA Description", type: "textarea" },
+            { name: "cta_button_text", label: "Bottom CTA Button Text" },
+            { name: "cta_button_href", label: "Bottom CTA Button Link" },
+          ]}
+        />
+        <AdminEditor
+          title="Service Cards"
+          mode="collection"
+          section="services"
+          fields={fields.services}
+          initialRows={toRows(services)}
+        />
+      </div>
+    );
+  }
+
   if (section === "contact") {
     const contact = await getContactInfo();
     return (
@@ -189,6 +256,34 @@ export default async function AdminSectionPage({ params }: { params: Promise<Par
           { name: "address", label: "Address", type: "textarea" },
         ]}
       />
+    );
+  }
+
+  if (section === "customer-logos") {
+    const customerReference = await getCustomerReference();
+    const customerLogos = await getCustomerLogos();
+
+    return (
+      <div className="grid gap-10">
+        <AdminEditor
+          title="OUR CUSTOMER REFERENCED - Section Text"
+          mode="content"
+          contentKey="customer_reference"
+          initialContent={customerReference}
+          fields={[
+            { name: "eyebrow", label: "Eyebrow / ข้อความเล็กด้านบน" },
+            { name: "title", label: "Section Title / หัวข้อหลัก" },
+            { name: "description", label: "Admin Note / คำอธิบายใน CMS", type: "textarea" },
+          ]}
+        />
+        <AdminEditor
+          title="OUR CUSTOMER REFERENCED - Customer Logos"
+          mode="collection"
+          section="customer_logos"
+          fields={fields["customer-logos"]}
+          initialRows={toRows(customerLogos)}
+        />
+      </div>
     );
   }
 
@@ -215,7 +310,6 @@ export default async function AdminSectionPage({ params }: { params: Promise<Par
     hardware: getHardwareProducts,
     pricing: getPricingPackages,
     reference: getReferenceCases,
-    "customer-logos": getCustomerLogos,
   };
   const items = await loaders[section as keyof typeof loaders]();
   const collectionSection =

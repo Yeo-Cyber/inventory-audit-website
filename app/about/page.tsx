@@ -21,6 +21,7 @@ import {
   Utensils,
   Warehouse,
 } from "lucide-react";
+import { InteractiveImage } from "@/components/InteractiveImage";
 
 const badges = ["Inventory Audit", "Barcode Scan", "Excel Friendly", "Dashboard Report"];
 
@@ -58,7 +59,7 @@ function CmsImage({
 
   return (
     <div className={`overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-xl shadow-blue-100/50 ${className}`}>
-      <img src={src} alt={alt} className="h-full w-full object-cover" />
+      <InteractiveImage src={src} alt={alt} className="h-full w-full" />
     </div>
   );
 }

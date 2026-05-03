@@ -11,7 +11,7 @@ const cards = [
   { title: "Hardware", href: "/admin/hardware" },
   { title: "Pricing", href: "/admin/pricing" },
   { title: "ผลงานที่ผ่านมา", href: "/admin/reference" },
-  { title: "Customer Logos", href: "/admin/customer-logos" },
+  { title: "OUR CUSTOMER REFERENCED", href: "/admin/customer-logos" },
   { title: "Contact", href: "/admin/contact" },
   { title: "Media Library", href: "/admin/media" },
 ];

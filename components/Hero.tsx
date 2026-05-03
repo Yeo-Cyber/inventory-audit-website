@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { InteractiveImage } from "@/components/InteractiveImage";
 
 type HeroProps = {
   eyebrow: string;
@@ -53,13 +54,11 @@ export function Hero({
             ) : null}
           </div>
         </div>
-        <div className="relative min-h-[360px] overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-xl shadow-neutral-200/70">
-          <img
+        <InteractiveImage
             src={imageSrc}
             alt="Stock counting software and scanner dashboard preview"
-            className="h-full w-full object-cover"
-          />
-        </div>
+          className="relative min-h-[360px] rounded-lg border border-neutral-200 bg-white shadow-xl shadow-neutral-200/70"
+        />
       </div>
     </section>
   );
